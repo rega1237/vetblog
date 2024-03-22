@@ -1,10 +1,14 @@
-<nav class="flex flex-col items-center bg-[#F2F1F6] pt-8">
-  <div class="flex justify-center">
-    <%= image_tag("logo_manuel", alt: "Logo Mauel") %>
-  </div>
+<nav class="absolute left-[50%] mt-12">
+  <div class="relative left-[-50%]">
+    <div class="flex flex-col items-center"> 
+      <div class="flex justify-center">
+        <%= image_tag("logo_manuel", alt: "Logo Mauel") %>
+      </div>
 
-  <ul class="flex gap-5">
-    <li><%= link_to "Inicio", root_path %></li>
-    <li><%= link_to "Blog", root_path %></li>
-  </ul>
+      <ul class="flex gap-5">
+        <li><%= link_to "Inicio", root_path %></li>
+        <li><%= link_to "Blog", root_path %></li>
+      </ul>
+    </div>
+  </div>
 </nav>

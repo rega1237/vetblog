@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ @import 'actiontext.css';
+
+ .attachment img {
+  margin: 0 auto;
+ }

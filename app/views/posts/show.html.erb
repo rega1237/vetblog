@@ -1,0 +1,5 @@
+<article class="pt-[15rem]">
+  <p><%=time_ago_in_words(@post.created_at)%></p>
+  <h1><%= @post.title %></h1>
+  <p><%= @post.body %></p>
+</article>

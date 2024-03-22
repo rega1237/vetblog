@@ -1,0 +1,17 @@
+<section class="pt-[15rem]">
+  <h1>Nuevo post</h1>
+
+  <%= form_for @post do |f| %>
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :body %><br>
+      <%= f.rich_text_area :body %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</section>

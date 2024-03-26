@@ -19,3 +19,13 @@
  .attachment img {
   margin: 0 auto;
  }
+
+ @media (min-width: 300px) and (max-width: 767px){
+  .trix-content h1 {
+    text-align: center;
+   }
+
+   .trix-content div {
+    text-align: justify;
+   }
+ }

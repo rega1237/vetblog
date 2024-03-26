@@ -1,17 +1,37 @@
-<section class="pt-[15rem]">
-  <h1>Nuevo post</h1>
+<section class="pt-[15rem] pb-8">
+  <div class="w-[70%] mx-auto"> 
 
-  <%= form_for @post do |f| %>
-    <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
-      <%= f.label :body %><br>
-      <%= f.rich_text_area :body %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
+    <%= form_for @post do |f| %>
+      <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="flex flex-col gap-5">
+        <div class="field flex flex-col gap-3">
+          <%= f.label :cover_image, class:"text-xl text-[#FFD700] font-bold" %><br>
+          <%= f.file_field :cover_image %>
+        </div>
+        <div class="field flex flex-col gap-2">
+          <label class="text-xl text-[#FFD700] font-bold">Titulo</label><br>
+          <%= f.text_field :title %>
+        </div>
+        <div class="field flex flex-col gap-3">
+          <%= f.label :body, class:"text-xl text-[#FFD700] font-bold" %><br>
+          <%= f.rich_text_area :body %>
+        </div>
+        <div class="actions">
+          <%= f.submit 'Crear Post', :class => "bg-[#FFD700] p-5 font-bold rounded-md hover:bg-black hover:text-[#FFD700]" %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
 </section>

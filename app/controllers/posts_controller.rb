@@ -5,6 +5,11 @@ class PostsController < ApplicationController
     @posts = Post.all()
   end
 
+  def posts_by_category
+    @category = Category.find(params[:category_id])
+    @posts = Post.where(category_id: @category.id)
+  end
+
   def show
   end
 
@@ -42,6 +47,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :cover_image, :category_id)
   end
 end

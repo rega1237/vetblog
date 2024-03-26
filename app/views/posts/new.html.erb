@@ -24,6 +24,10 @@
           <%= f.text_field :title %>
         </div>
         <div class="field flex flex-col gap-3">
+          <label class="text-xl text-[#FFD700] font-bold">Categorias</label><br>
+          <%= f.select :category_id, options_for_select(Category.all.map { |category| [category.name, category.id]})%>
+        </div>
+        <div class="field flex flex-col gap-3">
           <%= f.label :body, class:"text-xl text-[#FFD700] font-bold" %><br>
           <%= f.rich_text_area :body %>
         </div>

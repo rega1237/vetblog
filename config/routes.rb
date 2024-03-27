@@ -9,6 +9,4 @@ Rails.application.routes.draw do
   
   resources :posts
   resources :categories
-
-  get 'posts_by_category/:category_id', to: 'posts#posts_by_category', as: 'posts_by_category'
 end

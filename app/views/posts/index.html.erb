@@ -1,27 +1,28 @@
-<section class="pt-[15rem] pb-8">
+<section class="pb-8">
   <div class="flex flex-col gap-8">
     <% @posts.each do |post| %>
-      <div>
+      <div class="lg:mx-[8rem] lg:mb-8">
         <div class="container bg-[#F2F1F6] grid grid-cols-12 mx-auto shadow-lg">
           <div class="bg-no-repeat bg-cover col-span-full lg:col-span-4" style="background-image: url(<%= url_for(post.cover_image) %>); background-position: center center; background-blend-mode: multiply; background-size: cover;"></div>
-          <div class="flex flex-col p-6 col-span-full row-span-full lg:col-span-8 lg:p-10">
-            <div class="flex justify-start pb-5">
-              <%= link_to post.category.name, posts_by_category_path(post.category.id), class: "px-2 py-2 text-xs font-bold rounded-full bg-black text-[#FFD700]" %>
-            </div>
-            <h1 class="text-3xl font-semibold"><%= post.title %></h1>
-            <p class="flex-1 pt-2"><%= preview_body(post.body) %>...</p>
-            <a rel="noopener noreferrer" href=<%= post_path(post) %> class="inline-flex items-center pt-2 pb-6 space-x-2 text-lg text-[#FFD700] font-bold">
-              <span>Leer más</span>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
-                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-              </svg>
-            </a>
-            <div class="flex items-center justify-between pt-2">
-              <div class="flex space-x-2">
-                <p class="self-center text-sm">por Dr. Manuel Faneite</p>
+            <div class="flex flex-col p-6 col-span-full row-span-full lg:col-span-8 lg:p-8">
+              <div class="flex justify-start pb-5">
+                <%= link_to post.category.name, category_path(post.category.id), class: "px-2 py-2 text-xs font-bold rounded-full bg-black text-[#FFD700]", data: { turbo_action: "replace", turbo_frame: "post_frame" } %>
               </div>
+              <h1 class="text-3xl font-semibold"><%= post.title %></h1>
+              <p class="flex-1 pt-2"><%= preview_body(post.body) %>...</p>
+              <a rel="noopener noreferrer" href=<%= post_path(post) %> class="inline-flex items-center pt-2 pb-6 space-x-2 text-lg text-[#FFD700] font-bold" data-turbo-frame="post_detail_frame">
+                <span>Leer más</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex space-x-2">
+                  <p class="self-center text-sm">por Dr. Manuel Faneite</p>
+                </div>
 
-              <p class="self-center text-sm"><%= time_ago_in_words(post.created_at) %></p>
+                <p class="self-center text-sm"><%= time_ago_in_words(post.created_at) %></p>
+              </div>
             </div>
           </div>
         </div>

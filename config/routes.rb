@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root "home#index"
   
-  resources :posts
-  resources :categories
+  namespace :blog do
+    resources :posts, path: 'articulos'
+    resources :categories, path: 'categorias'
+  end
 end

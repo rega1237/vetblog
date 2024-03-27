@@ -14,8 +14,12 @@
   <body class="mont">
     <main>
       <%= render partial: 'partials/navbar' %>
-      <div class="pt-[15rem]">
-      <%= yield %>
+      <%if current_page?(root_path)%>
+        <div class="pt-[15rem] bg-[#F2F1F6]">
+      <%else%>
+        <div class="pt-[15rem]">
+      <%end%>
+        <%= yield %>
       </div>
     </main>
   </body>

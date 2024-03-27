@@ -14,18 +14,24 @@
  *= require_self
  */
 
- @import 'actiontext.css';
+@import "actiontext.css";
 
- .attachment img {
-  margin: 0 auto;
- }
+.attachment {
+  img {
+    margin: 0 auto;
+  }
+}
 
- .trix-content div {
-  text-align: justify;
- }
+.trix-content {
+  div {
+    text-align: justify;
+  }
+}
 
- @media (min-width: 300px) and (max-width: 767px){
-  .trix-content h1 {
-    text-align: center;
-   }
- }
+@media (min-width: 300px) and (max-width: 767px) {
+  .trix-content {
+    h1 {
+      text-align: center;
+    }
+  }
+}

@@ -6,7 +6,7 @@
           <div class="bg-no-repeat bg-cover col-span-full lg:col-span-4" style="background-image: url(<%= url_for(post.cover_image) %>); background-position: center center; background-blend-mode: multiply; background-size: cover;"></div>
             <div class="flex flex-col p-6 col-span-full row-span-full lg:col-span-8 lg:p-8">
               <div class="flex justify-start pb-5">
-                <%= link_to post.category.name, blog_categories_path(post.category), class: "px-2 py-2 text-xs font-bold rounded-full bg-black text-[#FFD700]", data: { turbo_action: "replace", turbo_frame: "post_frame" } %>
+                <%= link_to post.category.name, blog_category_path(post.category), class: "px-2 py-2 text-xs font-bold rounded-full bg-black text-[#FFD700]", data: { turbo_action: "replace", turbo_frame: "post_frame" } %>
               </div>
               <h1 class="text-3xl font-semibold"><%= post.title %></h1>
               <p class="flex-1 pt-2"><%= preview_body(post.body) %>...</p>

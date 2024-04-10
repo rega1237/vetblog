@@ -13,6 +13,8 @@
 
   <body class="mont">
     <main>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= render partial: 'partials/navbar' %>
       <%if current_page?(root_path)%>
         <div class="pt-[15rem] bg-[#F2F1F6]">

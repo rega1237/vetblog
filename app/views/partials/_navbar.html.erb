@@ -8,6 +8,11 @@
       <ul class="flex gap-5">
         <li><%= link_to "Inicio", root_path %></li>
         <li><%= link_to "Blog", blog_posts_path %></li>
+        <% if current_user %>
+          <li><%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, data: {turbo: false} %></li>
+        <% else %>
+          <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
+        <%end%> 
       </ul>
     </div>
   </div>
